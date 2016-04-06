@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #--------------------------------------
 # Auteur : Alexandre
-# Projet Sudoku : Module interface v2.1
+# Projet Sudoku : Module interface v3.0
 #--------------------------------------
 
 from tkinter import *
@@ -12,8 +12,6 @@ def al_erreur_nb():
 	Fonction qui permet d'afficher une fenètre d'erreur avec un texte
 	explicatif.
 	"""
-
-	# Début : fenetreer.
 	# On crée la fenetre.
 	fenetreer = Tk()
 
@@ -71,7 +69,33 @@ def interface_debut()-> list:
 	Fonction qui crée l'interface nécessaire pour entrer les chiffres imposés
 	du sudoku à résoudre.
 	"""
-	# Début : fenetre1.
+	def a_propos():
+		# Création de la fenètre.
+		al_fenetre1apropos = Tk()
+
+		# Titre de la fenètre.
+		al_fenetre1apropos.title("A propos")
+
+		# Ajoute un texte dans la fenètre.
+		Label(al_fenetre1apropos, text="Projet Sudoku", font=('Arial', 30, 'italic', 'bold')).pack()
+		Label(al_fenetre1apropos, text="Auteurs :", font=('Arial', 12, 'bold')).pack()
+		Label(al_fenetre1apropos, text="Ricardo Ramos", font=('Arial', 12, 'bold')).pack()
+		Label(al_fenetre1apropos, text="Rita Dos Santos", font=('Arial', 12, 'bold')).pack()
+		Label(al_fenetre1apropos, text="Alexandre l'Heritier", font=('Arial', 12, 'bold')).pack()
+		Label(al_fenetre1apropos, text="Projet final d'ISN", font=('Arial', 12)).pack()
+
+	def aide():
+		# Création de la fenètre.
+		al_fenetre1aide = Tk()
+
+		# Titre de la fenètre.
+		al_fenetre1aide.title("Aide")
+
+		# Ajoute un texte et un bouton dans la fenètre.
+		Label(al_fenetre1aide, text="Entrer dans les cases les chiffres imposés", font=('Arial', 12, 'bold')).pack()
+		Label(al_fenetre1aide, text="et appuyer sur GO. Laisser les 0 dans les cases", font=('Arial', 12, 'bold')).pack()
+		Label(al_fenetre1aide, text="que vous souhaitez faire remplir par le programme.", font=('Arial', 12,'bold')).pack()
+		Button(al_fenetre1aide, text="A propos", command=a_propos, font=('Arial', 12,'bold')).pack()
 	# Création de la fenètre.
 	al_fenetre1 = Tk()
 
@@ -84,9 +108,11 @@ def interface_debut()-> list:
 	# Permet de nommer les variables des cases.
 	al_nb_case = 0
 
-	# Ajoute un titre et un bouton dans la fenètre.
+	# Ajoute un titre et trois boutons dans la fenètre.
 	Label(al_fenetre1, text="Résolution de Sudoku", font=('Arial', 12, 'italic', 'bold')).grid(row=0, column=0, columnspan=11)
-	Button(al_fenetre1, text ="GO !!!", command=al_fenetre1.destroy, font=('Arial', 12, 'italic', 'bold')).grid(row=12, column=0, columnspan=11)
+	Button(al_fenetre1, text ="Quitter", command=sys.exit, font=('Arial', 12, 'italic', 'bold')).grid(row=12, column=0, columnspan=3)
+	Button(al_fenetre1, text ="GO !!!", command=al_fenetre1.destroy, font=('Arial', 12, 'italic', 'bold')).grid(row=12, column=3, columnspan=5)
+	Button(al_fenetre1, text ="Aide", command=aide, font=('Arial', 12, 'italic', 'bold')).grid(row=12, column=8, columnspan=3)
 
 	# Boucles qui crée 11 lignes et 11 colonnes (9 pour mettre des chiffres et 2 pour les espace).
 	for i in range(11):
@@ -121,7 +147,6 @@ def interface_fin(liste:list):
 	Fonction qui crée l'interface nécessaire pour afficher les chiffres
 	du sudoku résolu.
 	"""
-	# Début : fenetre2.
 	# Création de la fenètre.
 	al_fenetre2 = Tk()
 
@@ -130,7 +155,7 @@ def interface_fin(liste:list):
 
 	# Ajoute un titre et un bouton dans la fenètre.
 	Label(al_fenetre2, text="Sudoku résolu", font=('Arial', 12, 'italic', 'bold')).grid(row=0, column=0, columnspan=9)
-	Button(al_fenetre2, text ="Fermer", command=al_fenetre2.destroy, font=('Arial', 12, 'italic', 'bold')).grid(row=10, column=0, columnspan=9)
+	Button(al_fenetre2, text ="Fermer", command=sys.exit, font=('Arial', 12, 'italic', 'bold')).grid(row=10, column=0, columnspan=9)
 
 	# Boucles qui crée 9 lignes et 9 colonnes.
 	for i in range(9):
@@ -152,9 +177,8 @@ def interface_fin(liste:list):
 
 """
 Changelog :
-v3.0 (A venir !) :
+v3.0 :
 Interface avec plus d'instruction pour l'utilisateur.
-Interface avec plus d'option.
 
 v2.1 :
 Correction d'un bug avec les espaces dans la grille de l'interface_debut().
