@@ -8,7 +8,7 @@ On propose d’implémenter un algorithme permettant la résolution d’un sudok
 
 ## Comment Faire
 
-- [x]Fonction DisponibiliteSurLigne qui va donner les chiffres disponibles sur une ligne.X
-- [x]Fonction DisponibiliteSurColonne qui va donner les chiffres disponibles sur une colonne.X
-- [x] Fonction DisponibiliteSurBloc qui va donner les chiffres disponibles sur bloc.X
+- [x] Fonction DisponibiliteSurLigne qui va donner les chiffres disponibles sur une ligne
+- [x] Fonction DisponibiliteSurColonne qui va donner les chiffres disponibles sur une colonne
+- [x] Fonction DisponibiliteSurBloc qui va donner les chiffres disponibles sur bloc
 - Fonction DisponibiliteSurCase qui va donner les chiffres disponibles sur une case
