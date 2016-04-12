@@ -10,5 +10,5 @@ On propose d’implémenter un algorithme permettant la résolution d’un sudok
 
 - Fonction DisponibiliteSurLigne qui va donner les chiffres disponibles sur une ligne.X
 - Fonction DisponibiliteSurColonne qui va donner les chiffres disponibles sur une colonne.X
-- Fonction DisponibiliteSurBloc qui va donner les chiffres disponibles sur bloc.X
-- Fonction DisponibiliteSurCase qui va donner les chiffres disponibles sur une case
+- [x] Fonction DisponibiliteSurBloc qui va donner les chiffres disponibles sur bloc.X
+- [] Fonction DisponibiliteSurCase qui va donner les chiffres disponibles sur une case
