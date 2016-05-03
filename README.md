@@ -12,3 +12,4 @@ On propose d’implémenter un algorithme permettant la résolution d’un sudok
 - [x] Fonction DisponibiliteSurColonne qui va donner les chiffres disponibles sur une colonne
 - [x] Fonction DisponibiliteSurBloc qui va donner les chiffres disponibles sur bloc
 - Fonction DisponibiliteSurCase qui va donner les chiffres disponibles sur une case
+http://www-igm.univ-mlv.fr/~dr/XPOSE2013/sudoku/stochastique.html#principe
