@@ -8,8 +8,12 @@ On propose d’implémenter un algorithme permettant la résolution d’un sudok
 
 ## Comment Faire
 
-- [x] Fonction DisponibiliteSurLigne qui va donner les chiffres disponibles sur une ligne
-- [x] Fonction DisponibiliteSurColonne qui va donner les chiffres disponibles sur une colonne
-- [x] Fonction DisponibiliteSurBloc qui va donner les chiffres disponibles sur bloc
-- Fonction DisponibiliteSurCase qui va donner les chiffres disponibles sur une case
+- [x] Fonction DisponibiliteSurLigne qui va donner les chiffres disponibles sur une ligne.
+- [x] Fonction DisponibiliteSurColonne qui va donner les chiffres disponibles sur une colonne.
+- [x] Fonction DisponibiliteSurBloc qui va donner les chiffres disponibles sur bloc.
+- Fonction DisponibiliteSurCase qui va donner les chiffres disponibles sur une case.
+- Fonction Doub qui trouve le nombre de doublants par ligne.
+- Fonction RempAl qui va remplir aleatoirement selon les disponibilites dans chaque case.
+- Fonction CoordZero qui va garder en memoire les coordonnees des zeros.
+- Fonction Main
 http://www-igm.univ-mlv.fr/~dr/XPOSE2013/sudoku/stochastique.html#principe
