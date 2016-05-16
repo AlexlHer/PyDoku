@@ -16,5 +16,6 @@ On propose d’implémenter un algorithme permettant la résolution d’un sudok
 - Fonction Doub_bloc qui dit combien de doublons il y a sur chaque bloc.
 - Fonction RempAl qui va remplir aleatoirement selon les disponibilites dans chaque case.
 - [x] Fonction CoordZero qui va garder en memoire les coordonnees des zeros.
+- Fonction Remplacer_Bloc qui va modifier aléatoirement le bloc avec le plus de doublons.
 - Fonction Main
 http://www-igm.univ-mlv.fr/~dr/XPOSE2013/sudoku/stochastique.html#principe
