@@ -4,10 +4,6 @@
 # PyDoku v0.1
 #--------------------------------------
 
-# ------------------------------------------------------------
-# Fonctions pour l'interface de PyDoku :
-# ------------------------------------------------------------
-
 def al_erreur_nb():
 	"""
 	Fonction qui permet d'afficher une fenètre d'erreur avec un texte
@@ -172,11 +168,7 @@ def interface_fin(liste:list):
 	# Boucle infinie pour la fenètre.
 	al_fenetre2.mainloop()
 
-# ------------------------------------------------------------
-# Fonctions pour le remplissage initial :
-# ------------------------------------------------------------
-
-def bloc(x, y, l:list)->list:
+def ligne_vers_bloc(x, y, l:list)->list:
 	if x == 1:
 		x = 3
 	if x == 2:
@@ -197,18 +189,16 @@ def bloc(x, y, l:list)->list:
 		liste.append(ligne3[y+i])
 	return liste
 
-def nb_dispo(liste):
-	liste2 = []
+def total_ligne_vers_bloc(l:list)->list:
 	fin = []
-	for i in range(9):
-		if liste[i] != 0:
-			liste2.append(liste[i])
-	for i in range(9):
-		if i+1 not in liste2:
-			fin.append(i+1)
+	for x in range(3):
+		for y in range(3):
+			a = ligne_vers_bloc(x, y, l)
+			fin.append(a)
 	return fin
 
-def liste_finale(liste):
+
+def bloc_vers_ligne(liste):
 	fin = []
 	for i in range(3):
 		ia = 0
@@ -227,12 +217,23 @@ def liste_finale(liste):
 		fin.append(ligne3)
 	return fin
 
+def nb_dispo(liste):
+	liste2 = []
+	fin = []
+	for i in range(9):
+		if liste[i] != 0:
+			liste2.append(liste[i])
+	for i in range(9):
+		if i+1 not in liste2:
+			fin.append(i+1)
+	return fin
+
 def remplissage_total(liste):
 	grande_liste = []
 	for x in range(3):
 		for y in range(3):
 			liste9 = []
-			liste_bloc = bloc(x, y, liste)
+			liste_bloc = ligne_vers_bloc(x, y, liste, 0)
 			liste_dispo = nb_dispo(liste_bloc)
 			for z in range(9):
 				if liste_bloc[z] == 0:
@@ -241,14 +242,13 @@ def remplissage_total(liste):
 				else:
 					liste9.append(liste_bloc[z])
 			grande_liste.append(liste9)
-	grande_liste = liste_finale(grande_liste)
+	grande_liste = bloc_vers_ligne(grande_liste)
 	return grande_liste
 
-# ------------------------------------------------------------
-# Fonction qui permet de garder en memoire les coordonnées des zeros.
-# ------------------------------------------------------------
-
 def coordzero(l: list):
+	"""
+	Fonction qui permet de garder en memoire les coordonnées des zeros.
+	"""
 	res = []
     
 	for x in range(9):
