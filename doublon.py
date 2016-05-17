@@ -62,7 +62,11 @@ def doub_bloc(l:list):
 	for j in range(1,8):
 		if blocs[j]>blocs[inter]:
 			inter = j
-			
-	return inter
+	
+	if blocs[inter] == 0:
+		return false
+	else:
+		return inter
+	
 
 
