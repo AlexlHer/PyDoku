@@ -15,6 +15,7 @@ def al_erreur_nb():
 	Fonction qui permet d'afficher une fenètre d'erreur avec un texte
 	explicatif.
 	"""
+
 	# On crée la fenetre.
 	fenetreer = Tk()
 
@@ -319,7 +320,7 @@ def bloc_double(l:list):
 		blocs[8] += repet[0][i] + repet[1][i]
 
 	inter = 0
-	for j in range(1,8):
+	for j in range(1,9):
 		if blocs[j]>blocs[inter]:
 			inter = j
 	
@@ -333,10 +334,10 @@ def remplace_bloc(liste:list, coordzero:list):
 	liste_inter = total_ligne_vers_bloc(liste)
 	memoire_chiffre = []
 	for i in range(9):
-		if [bloc,i] not in coordzero:
-			chiffre = randint(1, 10)
+		if [bloc,i]  in coordzero:
+			chiffre = random.randint(1, 9)
 			while chiffre in memoire_chiffre:
-				chiffre = random.randint(1, 10)
+				chiffre = random.randint(1, 9)
 			memoire_chiffre.append(chiffre)
 			liste_inter[bloc][i] = chiffre
 
@@ -346,7 +347,9 @@ def main():
 	sudoku_initial = interface_debut()
 	coord_zeros = coordzero(sudoku_initial)
 	sudoku_rempli = remplissage_total(sudoku_initial)
-	while bloc_double(sudoku_rempli) != False:
+	condition = ([0,0,0,0,0,0,0,0,0], [0,0,0,0,0,0,0,0,0])
+	while doublon(sudoku_rempli) != condition:
+		print(sudoku_rempli)
 		sudoku_rempli = remplace_bloc(sudoku_rempli, coord_zeros)
 	print(sudoku_rempli)
 	interface_fin(sudoku_rempli)
