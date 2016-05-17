@@ -64,7 +64,7 @@ def doub_bloc(l:list):
 			inter = j
 	
 	if blocs[inter] == 0:
-		return false
+		return False
 	else:
 		return inter
 	
