@@ -242,6 +242,7 @@ def remplissage_total(liste):
 			liste9 = []
 			liste_bloc = ligne_vers_bloc(x, y, liste)
 			liste_dispo = nb_dispo(liste_bloc)
+			random.shuffle(liste_dispo)
 			for z in range(9):
 				if liste_bloc[z] == 0:
 					liste9.append(liste_dispo[0])
