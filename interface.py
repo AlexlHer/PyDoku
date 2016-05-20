@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #--------------------------------------
 # Auteur : Alexandre
-# Projet Sudoku : Module interface v3.0
+# PyDoku : Module interface v4.0
 #--------------------------------------
 
 from tkinter import *
@@ -69,6 +69,76 @@ def interface_debut()-> list:
 	Fonction qui crée l'interface nécessaire pour entrer les chiffres imposés
 	du sudoku à résoudre.
 	"""
+	global save_liste
+	save_liste = 0
+	def a_create_save():
+		# Créer un fichier .csv.
+		ecrire = open("mettre_sudoku_ici.csv", "w")
+
+		# Ecrit dedans.
+		ecrire.write("Remplacer;les zeros par;les chiffres;voulu. Laisser;les zeros;dans les cases;à faire;remplir par;le programme;\n")
+		ecrire.write("0;0;0;0;0;0;0;0;0;\n")
+		ecrire.write("0;0;0;0;0;0;0;0;0;\n")
+		ecrire.write("0;0;0;0;0;0;0;0;0;\n")
+		ecrire.write("0;0;0;0;0;0;0;0;0;\n")
+		ecrire.write("0;0;0;0;0;0;0;0;0;\n")
+		ecrire.write("0;0;0;0;0;0;0;0;0;\n")
+		ecrire.write("0;0;0;0;0;0;0;0;0;\n")
+		ecrire.write("0;0;0;0;0;0;0;0;0;\n")
+		ecrire.write("0;0;0;0;0;0;0;0;0;")
+
+
+	def a_open_save():
+		global save_liste
+		# Ouvre le fichier .csv.
+		lire = open("mettre_sudoku_ici.csv", "r")
+		# Met toutes les lignes dans liste.
+		liste = []
+		for ligne in lire:
+			liste.append(ligne)
+		# Converti les lignes en liste puis réuni tous.
+		liste1 = liste[1]
+		liste1 = liste1.split(";")
+		liste2 = liste[2]
+		liste2 = liste2.split(";")
+		liste3 = liste[3]
+		liste3 = liste3.split(";")
+		liste4 = liste[4]
+		liste4 = liste4.split(";")
+		liste5 = liste[5]
+		liste5 = liste5.split(";")
+		liste6 = liste[6]
+		liste6 = liste6.split(";")
+		liste7 = liste[7]
+		liste7 = liste7.split(";")
+		liste8 = liste[8]
+		liste8 = liste8.split(";")
+		liste9 = liste[9]
+		liste9 = liste9.split(";")
+		save_liste = [liste1, liste2, liste3, liste4, liste5, liste6, liste7, liste8, liste9]
+		for i in range(9):
+			for j in range(9):
+				if len(save_liste[i][j]) != 1:
+					save_liste[i][j] = save_liste[i][j][0]
+				save_liste[i][j] = int(save_liste[i][j])
+
+	def a_save():
+		# Création de la fenètre.
+		al_save = Tk()
+
+		# Titre de la fenètre.
+		al_save.title("Sauvegarde")
+
+		# Ajoute les éléments dans la fenètre.
+		Label(al_save, text='Le bouton "Créer un .csv" permet de créer', font=('Arial', 12, 'bold')).pack()
+		Label(al_save, text="un fichier dans lequel vous pourrez mettre", font=('Arial', 12, 'bold')).pack()
+		Label(al_save, text='votre sudoku a résoudre. Le bouton "Ouvrir', font=('Arial', 12, 'bold')).pack()
+		Label(al_save, text='un .csv" permet de résoudre le sudoku', font=('Arial', 12, 'bold')).pack()
+		Label(al_save, text="contenu dans le .csv. Après avoir pressé le bouton,", font=('Arial', 12, 'bold')).pack()
+		Label(al_save, text="fermer les deux fenètre et appuyer sur GO !!!", font=('Arial', 12, 'bold')).pack()
+		Button(al_save, text="Créer un .csv", command=a_create_save, font=('Arial', 12,'bold')).pack()
+		Button(al_save, text="Ouvrir un .csv", command=a_open_save, font=('Arial', 12,'bold')).pack()
+
 	def a_propos():
 		# Création de la fenètre.
 		al_fenetre1apropos = Tk()
@@ -77,7 +147,7 @@ def interface_debut()-> list:
 		al_fenetre1apropos.title("A propos")
 
 		# Ajoute un texte dans la fenètre.
-		Label(al_fenetre1apropos, text="Projet Sudoku", font=('Arial', 30, 'italic', 'bold')).pack()
+		Label(al_fenetre1apropos, text="PyDoku", font=('Arial', 30, 'italic', 'bold')).pack()
 		Label(al_fenetre1apropos, text="Auteurs :", font=('Arial', 12, 'bold')).pack()
 		Label(al_fenetre1apropos, text="Ricardo Ramos", font=('Arial', 12, 'bold')).pack()
 		Label(al_fenetre1apropos, text="Rita Dos Santos", font=('Arial', 12, 'bold')).pack()
@@ -95,12 +165,13 @@ def interface_debut()-> list:
 		Label(al_fenetre1aide, text="Entrer dans les cases les chiffres imposés", font=('Arial', 12, 'bold')).pack()
 		Label(al_fenetre1aide, text="et appuyer sur GO. Laisser les 0 dans les cases", font=('Arial', 12, 'bold')).pack()
 		Label(al_fenetre1aide, text="que vous souhaitez faire remplir par le programme.", font=('Arial', 12,'bold')).pack()
+		Button(al_fenetre1aide, text="Sauvegarde", command=a_save, font=('Arial', 12,'bold')).pack()
 		Button(al_fenetre1aide, text="A propos", command=a_propos, font=('Arial', 12,'bold')).pack()
 	# Création de la fenètre.
 	al_fenetre1 = Tk()
 
 	# Titre de la fenètre.
-	al_fenetre1.title("Projet Sudoku")
+	al_fenetre1.title("PyDoku")
 
 	# Permet de créer des variables globales.
 	al_varglob = globals()
@@ -112,7 +183,7 @@ def interface_debut()-> list:
 	Label(al_fenetre1, text="Résolution de Sudoku", font=('Arial', 12, 'italic', 'bold')).grid(row=0, column=0, columnspan=11)
 	Button(al_fenetre1, text ="Quitter", command=sys.exit, font=('Arial', 12, 'italic', 'bold')).grid(row=12, column=0, columnspan=3)
 	Button(al_fenetre1, text ="GO !!!", command=al_fenetre1.destroy, font=('Arial', 12, 'italic', 'bold')).grid(row=12, column=3, columnspan=5)
-	Button(al_fenetre1, text ="Aide", command=aide, font=('Arial', 12, 'italic', 'bold')).grid(row=12, column=8, columnspan=3)
+	Button(al_fenetre1, text ="Aide/Save", command=aide, font=('Arial', 12, 'italic', 'bold')).grid(row=12, column=8, columnspan=3)
 
 	# Boucles qui crée 11 lignes et 11 colonnes (9 pour mettre des chiffres et 2 pour les espace).
 	for i in range(11):
@@ -140,22 +211,38 @@ def interface_debut()-> list:
 	al_fenetre1.mainloop()
 
 	# Retourne la liste que retourne la fonction traitement_resultat().
-	return traitement_resultat()
+	if save_liste == 0:
+		return traitement_resultat()
+	else:
+		return save_liste
 
 def interface_fin(liste:list):
 	"""
 	Fonction qui crée l'interface nécessaire pour afficher les chiffres
 	du sudoku résolu.
 	"""
+	def al_save_fin():
+		# Créer un fichier .csv. 
+		ecrire = open("sudoku_resolu.csv", "w")
+
+		# Ecrit dedans.
+		ecrire.write("Sudoku;résolu !!!;\n")
+		for i in range(9):
+			for j in range(9):
+				ecrire.write(str(liste[i][j]))
+				ecrire.write(";")
+			ecrire.write("\n")
+
 	# Création de la fenètre.
 	al_fenetre2 = Tk()
 
 	# Titre de la fenètre.
-	al_fenetre2.title("Projet Sudoku")
+	al_fenetre2.title("PyDoku")
 
 	# Ajoute un titre et un bouton dans la fenètre.
 	Label(al_fenetre2, text="Sudoku résolu", font=('Arial', 12, 'italic', 'bold')).grid(row=0, column=0, columnspan=9)
-	Button(al_fenetre2, text ="Fermer", command=sys.exit, font=('Arial', 12, 'italic', 'bold')).grid(row=10, column=0, columnspan=9)
+	Button(al_fenetre2, text ="Fermer", command=sys.exit, font=('Arial', 12, 'italic', 'bold')).grid(row=10, column=0, columnspan=4)
+	Button(al_fenetre2, text ="Sauvegarder dans .csv", command=al_save_fin, font=('Arial', 12, 'italic', 'bold')).grid(row=10, column=4, columnspan=5)
 
 	# Boucles qui crée 9 lignes et 9 colonnes.
 	for i in range(9):
@@ -177,6 +264,9 @@ def interface_fin(liste:list):
 
 """
 Changelog :
+v4.0 :
+Ajout de possibilité de sauvegardes.
+
 v3.0 :
 Interface avec plus d'instruction pour l'utilisateur.
 
