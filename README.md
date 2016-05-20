@@ -1,4 +1,4 @@
-# Projet Final ISN
+# Projet Final ISN : PyDoku
 ## Ricardo, Rita et Alexandre
 Projet final d'ISN 2016 :
 
