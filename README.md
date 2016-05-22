@@ -15,3 +15,4 @@ On propose d’implémenter un algorithme permettant la résolution d’un sudok
 - [x] Fonction DisponibiliteSurCase qui va donner les chiffres disponibles sur une case.
 - [x] Fonction Interface_debut et Interface_debut.
 - [x] Fonction main.
+- Commentaires et descriptions
