@@ -10,11 +10,20 @@ def disponibilite_sur_ligne(coord:tuple, l:list)->list:
 	la case, dont on donne les coordonnées sous forme de tuple dans 
 	les arguments, dans la grille donnée sous forme de liste dans la grille.
 	""" 
-	y = coord[0]
+     # Affecte à x le numéro de la ligne
+	x = coord[0]
+ 
+     # Crée une liste pour garder les disponibilités de la ligne
 	res = []
+ 
+     # Boucle qui vérifie les disponibilités
 	for i in range(1,10):
-		if i not in l[y]:
+		if i not in l[x]:
+      
+     # Rajoute les disponibilités dans la liste
 			res.append(i)
+   
+     # Retourne la fin de la liste 
 	return res
 
 def disponibilite_sur_colonne(coord:tuple, liste:list)->list:
@@ -68,28 +77,42 @@ def total_ligne_vers_bloc(l:list)->list:
 		for y in range(3):
 			a = ligne_vers_bloc(x, y, l)
 			fin.append(a)
+   # Retourne la liste fin
 	return fin
 
 
 def disponibilite_sur_bloc(coord:tuple, l:list)->list:
+    """
+	Fonction qui va chercher les disponibilités dans le bloc pour la case,
+     dont on donne les coordonnées sous forme de tuple dans les arguments,
+     dans la grille donnée sous forme de liste dans la grille.
+	""" 
+     # On fait appel à la fonction total_ligne_sur_bloc   
 	liste = total_ligne_vers_bloc(l)
+     
+     # On récupere les coordonnées de la case dans le tuple
 	x = coord[0]
 	y = coord[1]
+ 
+     # On donne les blocs possibles suivant les coordonnées de x et de y
 	if x in range(0,3):
 		x = [1, 2, 3]
 	elif x in range(3,6):
 		x = [4, 5, 6]
 	elif x in range(6,9):
 		x = [7, 8, 9]
-
+  
 	if y in range(0,3):
 		y = [1, 4, 7]
 	elif y in range(3,6):
 		y = [2, 5, 8]
 	elif y in range(6,9):
 		y = [3, 6, 9]
+  
+     # On cherche le bloc commun aux blocs disponibles pour x et pour y
 	for i in range(1,10):
 		if i in x and i in y:
+     # On affecte à une variable la liste correspondant au bloc 
 			liste_bloc = liste[i-1]
 	# Créer une liste dans fin.
 	fin = []
@@ -98,18 +121,30 @@ def disponibilite_sur_bloc(coord:tuple, l:list)->list:
 	for i in range(1,10):
 		if i not in liste_bloc:
 			fin.append(i)
+       # Retourne la liste fin
 	return fin
 
 def disponibilite_sur_case(l:list, coord:tuple):
 	"""
-	Cette fonction vérifie les différentes possibilités d'une case
+	Cette fonction cherche les disponibilités dans le cases
 	"""
+     # Crée une liste pour garder les disponibilités
 	res = []
+ 
+     # On affecte à une variable les disponibilités de la ligne 
 	ligne = disponibilite_sur_ligne(coord, l)
+ 
+     # On affecte à une variable les disponibilités de la colonne
 	colonne = disponibilite_sur_colonne(coord,l)
+ 
+     # On affecte à une variable les disponibilités du bloc
 	bloc = disponibilite_sur_bloc(coord, l)
 
+    # Boucle qui vérifie les chiffres communs dans les trois listes...
 	for i in range(1,10):
 		if i in ligne and i in colonne and i in bloc:
+      # ... et les rajoute dans la liste 
 			res.append(i)
+   
+   # Retourne la liste res
 	return res
