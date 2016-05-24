@@ -11,19 +11,30 @@ def coordzero(liste: list):
 	"""
 	Fonction qui permet de garder en memoire les coordonnées des zeros.
 	"""
+
+	# Création d'une liste qui contiendra toutes les coordonnées
 	res = []
     
+	# On parcourt la grille à l'aide de deux boucles
 	for x in range(9):
 		for y in range(9):
+			# On vérifie si la valeur dans la case est un zéro et si 
+			# c'est le cas on garde les coordonnées sous forme de liste
 			if liste[x][y] == 0:
 				res.append([x, y])
+	# On retourne la liste avec toutes les coordonnées
 	return res
 
 
 def ordre(sudoku:list, coordzero:list):
+
+	# Création d'une liste qui va sauvegarder le résultat
 	res = []
+	# Parcourt de la grille
 	for x in range(9):
 		for y in range(9):
+			# On vérifie si les coordonnées de la case sont dans 
+			# les coordonnées correspondant aux zéros
 			if [x, y] in coordzero:
 				disp = disponibilite_sur_case(sudoku, (x,y))
 				res_inter = [(x,y), disp]
@@ -46,8 +57,8 @@ def remplissage(sudoku:list, coordzero):
 	erreur = 0
 	while i < len(order):
 		erreur += 1
-		if erreur > 100000:
-			al_erreur_nb()
+		#if erreur > 100000:
+			#al_erreur_nb()
 		if i < 0:
 			i = 0
 		x = order[i][0]
@@ -105,3 +116,4 @@ Bugs aléatoire.
 v0.1 :
 Fonctions principals ajoutées.
 """
+
