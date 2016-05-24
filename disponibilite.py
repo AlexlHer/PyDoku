@@ -5,6 +5,11 @@
 #--------------------------------------
 
 def disponibilite_sur_ligne(coord:tuple, l:list)->list:
+	"""
+	Fonction qui va chercher les disponibilités pour la ligne où se trouve
+	la case, dont on donne les coordonnées sous forme de tuple dans 
+	les arguments, dans la grille donnée sous forme de liste dans la grille.
+	""" 
 	y = coord[0]
 	res = []
 	for i in range(1,10):
