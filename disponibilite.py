@@ -51,6 +51,9 @@ def disponibilite_sur_colonne(coord:tuple, liste:list)->list:
 	return fin
 
 def total_ligne_vers_bloc(l:list)->list:
+	"""
+	Transforme la liste qui contient les lignes en liste qui contient les blocs.
+	"""
 	# Créer une liste a retourner a la fin.
 	fin = []
 
