@@ -50,34 +50,40 @@ def disponibilite_sur_colonne(coord:tuple, liste:list)->list:
 	# Retourne la liste fin.
 	return fin
 
-def ligne_vers_bloc(x, y, l:list)->list:
-	if x == 1:
-		x = 3
-	if x == 2:
-		x = 6
-	if y == 1:
-		y = 3
-	if y == 2:
-		y = 6
-	ligne1 = l[x]
-	ligne2 = l[x+1]
-	ligne3 = l[x+2]
-	liste = []
-	for i in range(3):
-		liste.append(ligne1[y+i])
-	for i in range(3):
-		liste.append(ligne2[y+i])
-	for i in range(3):
-		liste.append(ligne3[y+i])
-	return liste
-
 def total_ligne_vers_bloc(l:list)->list:
+	# Créer une liste a retourner a la fin.
 	fin = []
+
+	# Boucle qui étudie les 9 blocs du sudoku.
 	for x in range(3):
 		for y in range(3):
-			a = ligne_vers_bloc(x, y, l)
-			fin.append(a)
-   # Retourne la liste fin
+				# Tests pour définir le bloc à traiter.
+				if x == 1:
+					x = 3
+				if x == 2:
+					x = 6
+				if y == 1:
+					y = 3
+				if y == 2:
+					y = 6
+
+				# Prend les trois listes qui composent le bloc.
+				ligne1 = l[x]
+				ligne2 = l[x+1]
+				ligne3 = l[x+2]
+
+				# Liste qui append les chiffres du bloc.
+				liste = []
+				for i in range(3):
+					liste.append(ligne1[y+i])
+				for i in range(3):
+					liste.append(ligne2[y+i])
+				for i in range(3):
+					liste.append(ligne3[y+i])
+
+				# Append tous les blocs.
+				fin.append(liste)
+	# Retourne la liste fin.
 	return fin
 
 
