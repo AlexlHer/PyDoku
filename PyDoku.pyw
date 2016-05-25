@@ -147,6 +147,8 @@ def main():
 main()
 """"
 Changelog :
+v3.0 :
+Ajout des commentaires.
 
 v2.0 :
 Mélange des deux programmes.
