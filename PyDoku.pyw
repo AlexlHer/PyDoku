@@ -105,7 +105,7 @@ Tous les bugs résolus.
 
 v1.0 (Alexandre) :
 Passage du mode aléatoire en mode backtracking.
-Choix d'une méthode linéaire.
+Choix d'une méthode itératif.
 Bug sur les sudokus difficiles.
 
 v1.0 (Ricardo) :
