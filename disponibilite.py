@@ -155,5 +155,5 @@ def disponibilite_sur_case(l:list, coord:tuple):
 	  # ... et les rajoute dans la liste 
 			res.append(i)
    
-   # Retourne la liste res
+   	# Retourne la liste res
 	return res
