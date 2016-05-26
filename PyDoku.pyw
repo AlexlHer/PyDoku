@@ -76,17 +76,8 @@ def remplissage(sudoku:list, coordzero:list):
 	order = ordre(sudoku, coordzero)
 	# Initialisation du compteur pour la boucle
 	i = 0
-	# Initialisation du compteurs de tours de boucle
-	erreur = 0
 	# Boucle qui va remplir les cases à traiter
 	while i < len(order):
-		# A chaque tour on augmente la variable erreur de 1
-		erreur += 1
-		# Si on dépasse les 100000 tours, on affiche un message d'erreur
-		# et on arrête la boucle
-		if erreur > 100000:
-			al_erreur_nb()
-			break
 		# Si le compteur i repasse en dessous de 0, on le remet à 0
 		if i < 0:
 			i = 0
