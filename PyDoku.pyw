@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Auteurs : Ricardo Ramos, Rita Dos Santos, Alexandre l'Heritier
 print("----------------------------------------------------------------------")
-print("PyDoku v2.0")
+print("PyDoku v3.0")
 print("----------------------------------------------------------------------")
 
 from interfaces import *
