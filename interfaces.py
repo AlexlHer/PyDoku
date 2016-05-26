@@ -402,10 +402,6 @@ def interface_fin(liste:list):
 	# Boucle infinie pour la fenètre.
 	al_fenetre2.mainloop()
 
-#print(interface_debut())
-#a = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]]
-#interface_fin(a)
-
 """
 Changelog :
 v6.0 :
