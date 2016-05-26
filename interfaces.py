@@ -181,9 +181,9 @@ def interface_debut()-> list:
 
 	# Ajoute un titre et trois boutons dans la fenètre.
 	Label(al_fenetre1, text="Résolution de Sudoku", font=('Arial', 12, 'italic', 'bold')).grid(row=0, column=0, columnspan=11)
-	Button(al_fenetre1, text ="Quitter", command=sys.exit, font=('Arial', 12, 'italic', 'bold')).grid(row=12, column=0, columnspan=3)
-	Button(al_fenetre1, text ="GO !!!", command=al_fenetre1.destroy, font=('Arial', 12, 'italic', 'bold')).grid(row=12, column=3, columnspan=5)
-	Button(al_fenetre1, text ="Aide/Save", command=aide, font=('Arial', 12, 'italic', 'bold')).grid(row=12, column=8, columnspan=3)
+	Button(al_fenetre1, text ="Quitter", command=sys.exit, font=('Arial', 12, 'italic', 'bold'), relief=FLAT).grid(row=12, column=0, columnspan=3)
+	Button(al_fenetre1, text ="GO !!!", command=al_fenetre1.destroy, font=('Arial', 12, 'italic', 'bold'), relief=FLAT).grid(row=12, column=3, columnspan=5)
+	Button(al_fenetre1, text ="Aide/Save", command=aide, font=('Arial', 12, 'italic', 'bold'), relief=FLAT).grid(row=12, column=8, columnspan=3)
 
 	# Boucles qui crée 11 lignes et 11 colonnes (9 pour mettre des chiffres et 2 pour les espace).
 	for i in range(11):
@@ -241,8 +241,8 @@ def interface_fin(liste:list):
 
 	# Ajoute un titre et un bouton dans la fenètre.
 	Label(al_fenetre2, text="Sudoku résolu", font=('Arial', 12, 'italic', 'bold')).grid(row=0, column=0, columnspan=9)
-	Button(al_fenetre2, text ="Fermer", command=sys.exit, font=('Arial', 12, 'italic', 'bold')).grid(row=10, column=0, columnspan=4)
-	Button(al_fenetre2, text ="Sauvegarder dans .csv", command=al_save_fin, font=('Arial', 12, 'italic', 'bold')).grid(row=10, column=4, columnspan=5)
+	Button(al_fenetre2, text ="Fermer", command=sys.exit, font=('Arial', 12, 'italic', 'bold'), relief=FLAT).grid(row=10, column=0, columnspan=4)
+	Button(al_fenetre2, text ="Sauvegarder dans .csv", command=al_save_fin, font=('Arial', 12, 'italic', 'bold'), relief=FLAT).grid(row=10, column=4, columnspan=5)
 
 	# Boucles qui crée 9 lignes et 9 colonnes.
 
