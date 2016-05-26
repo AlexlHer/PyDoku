@@ -1,5 +1,5 @@
 # Projet Final ISN 2016
-# PyDoku v2.0
+# PyDoku v3.0
 ## par Ricardo, Rita et Alexandre
 Projet :
 
@@ -15,4 +15,4 @@ On propose d’implémenter un algorithme permettant la résolution d’un sudok
 - [x] Fonction DisponibiliteSurCase qui va donner les chiffres disponibles sur une case.
 - [x] Fonction Interface_debut et Interface_debut.
 - [x] Fonction main.
-- Commentaires et descriptions
+- [x] Commentaires et descriptions
