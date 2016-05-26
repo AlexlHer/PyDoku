@@ -1,11 +1,129 @@
 # -*- coding: utf-8 -*-
 #--------------------------------------
 # Auteur : Alexandre l'Heritier
-# PyDoku : Module interface v5.0
+# PyDoku : Module interface v6.0
 #--------------------------------------
 
 from tkinter import *
 import sys
+
+def verif_ligne(liste, pos):
+	"""
+	Fonction qui verifie si il y a des doublons sur la pos ligne.
+	"""
+	# Ligne prend la ligne voulu.
+	ligne = liste[pos]
+
+	# Liste temp pour vérifier les doublons.
+	temp = []
+
+	# Boucle qui verifie chaque éléments de la ligne.
+	for i in range(9):
+		if ligne[i] == 0:
+			pass
+		else:
+			# Retourne True si doublon.
+			if ligne[i] in temp:
+				return True
+			temp.append(ligne[i])
+	# Retourne False si il n'y a pas de doublon.
+	return False
+
+def verif_colonne(liste, pos):
+	"""
+	Fonction qui verifie si il y a des doublons sur la pos colonne.
+	"""
+	# Liste qui va contenir les éléments de la pos colonne.
+	colonne = []
+
+	# Boucle qui explore les 9 ligne de la liste.
+	for i in range(9):
+		colonne.append(liste[i][pos])
+	# Liste temp pour vérifier les doublons.
+	temp = []
+
+	# Boucle qui verifie chaque éléments de la colonne.
+	for i in range(9):
+		if colonne[i] == 0:
+			pass
+		else:
+			# Retourne True si doublon.
+			if colonne[i] in temp:
+				return True
+			temp.append(colonne[i])
+	# Retourne False si il n'y a pas de doublon.
+	return False
+
+def total_ligne_vers_bloc(l:list)->list:
+	"""
+	Transforme la liste qui contient les lignes en liste qui contient les blocs.
+	"""
+	# Créer une liste a retourner a la fin.
+	fin = []
+
+	# Boucle qui étudie les 9 blocs du sudoku.
+	for x in range(3):
+		for y in range(3):
+				# Tests pour définir le bloc à traiter.
+				if x == 1:
+					x = 3
+				if x == 2:
+					x = 6
+				if y == 1:
+					y = 3
+				if y == 2:
+					y = 6
+
+				# Prend les trois listes qui composent le bloc.
+				ligne1 = l[x]
+				ligne2 = l[x+1]
+				ligne3 = l[x+2]
+
+				# Liste qui append les chiffres du bloc.
+				liste = []
+				for i in range(3):
+					liste.append(ligne1[y+i])
+				for i in range(3):
+					liste.append(ligne2[y+i])
+				for i in range(3):
+					liste.append(ligne3[y+i])
+
+				# Append tous les blocs.
+				fin.append(liste)
+	# Retourne la liste fin.
+	return fin
+
+def verif_bloc(liste, pos):
+	"""
+	Fonction qui verifie si il y a des doublons sur la pos bloc.
+	"""
+	liste = total_ligne_vers_bloc(liste)
+	# Ligne prend la ligne voulu.
+	ligne = liste[pos]
+
+	# Liste temp pour vérifier les doublons.
+	temp = []
+
+	# Boucle qui verifie chaque éléments du bloc.
+	for i in range(9):
+		if ligne[i] == 0:
+			pass
+		else:
+			# Retourne True si doublon.
+			if ligne[i] in temp:
+				return True
+			temp.append(ligne[i])
+	# Retourne False si il n'y a pas de doublon.
+	return False
+
+def verif_tout(liste):
+	for i in range(9):
+		ligne = verif_ligne(liste, i)
+		colonne = verif_colonne(liste, i)
+		bloc = verif_bloc(liste, i)
+		if ligne == True or colonne == True or bloc == True:
+			return True
+	return False
 
 def al_erreur_nb():
 	"""
@@ -210,11 +328,19 @@ def interface_debut()-> list:
 	# Permet de maintenir la fenètre ouverte (boucle infinie).
 	al_fenetre1.mainloop()
 
-	# Retourne la liste que retourne la fonction traitement_resultat().
+	# Verifie et retourne la liste que retourne la fonction traitement_resultat() ou save_liste 
+	# si une sauvegarde est ouverte, si problème dans liste, retourne une erreur.
 	if save_liste == 0:
-		return traitement_resultat()
+		liste_a_retourner = traitement_resultat()
+		if verif_tout(liste_a_retourner) == True:
+			al_erreur_nb()
+		else:
+			return liste_a_retourner
 	else:
-		return save_liste
+		if verif_tout(save_liste) == True:
+			al_erreur_nb()
+		else:
+			return save_liste
 
 def interface_fin(liste:list):
 	"""
@@ -282,6 +408,9 @@ def interface_fin(liste:list):
 
 """
 Changelog :
+v6.0 :
+Ajout une verification de grille pour éviter les doublons.
+
 v5.0 :
 Ajout de couleur pour l'interface de fin.
 
