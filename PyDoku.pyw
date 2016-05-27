@@ -128,12 +128,14 @@ def remplissage(sudoku:list, coordzero:list):
 def main():
 	# On récupère la grille iniciale dans l'interface
 	sudoku_initial = interface_debut()
+	# Copie de la grille dans une autre variable pour la sauver.
+	save_sudoku = deepcopy(sudoku_initial)
 	# On récupère les coordonnées des zéros de la case
 	coord_zeros = coordzero(sudoku_initial)
 	# On remplis grâce à la fonction remplissage
 	fin = remplissage(sudoku_initial, coord_zeros)
 	# On affiche la grille finale à l'aide de l'interface
-	interface_fin(fin)
+	interface_fin(fin, save_sudoku)
 
 main()
 """"
