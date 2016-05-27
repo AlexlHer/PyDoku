@@ -342,7 +342,7 @@ def interface_debut()-> list:
 		else:
 			return save_liste
 
-def interface_fin(liste:list):
+def interface_fin(liste:list, save:list):
 	"""
 	Fonction qui crée l'interface nécessaire pour afficher les chiffres
 	du sudoku résolu.
@@ -374,27 +374,21 @@ def interface_fin(liste:list):
 
 	for i in range(9):
 		for j in range(9):
-			if i in range(0,3) and j in range(0,3):
-				fond = "red"
-			if i in range(0,3) and j in range(3,6):
-				fond = "green"
-			if i in range(0,3) and j in range(6,9):
-				fond = "purple"
-			if i in range(3,6) and j in range(0,3):
-				fond = "blue"
-			if i in range(3,6) and j in range(3,6):
-				fond = "black"
-			if i in range(3,6) and j in range(6,9):
-				fond = "orange"
-			if i in range(6,9) and j in range(0,3):
-				fond = "brown"
-			if i in range(6,9) and j in range(3,6):
-				fond = "cyan"
-			if i in range(6,9) and j in range(6,9):
-				fond = "grey"
+			# Gère la couleur des cases, si le chiffre a été entrer par l'user, la couleur sera noir sinon rouge ou orange.
+			if liste[i][j] == save[i][j]:
+				affiche = Label(al_fenetre2, text=liste[i][j], width=2, font=('Arial', 20, 'bold'), fg="black")
+			else:
+				if (i in range(0,3) or i in range(6,9)) and (j in range(0,3) or j in range(6,9)):
+					fond = "red"
+				if (i in range(3,6) or i in range(6,9)) and j in range(3,6):
+					fond = "red"
+				if (i in range(0,3) or i in range(6,9)) and j in range(3,6):
+					fond = "orange"
+				if i in range(3,6) and (j in range(0,3) or j in range(6,9)):
+					fond = "orange"
 
-			# Affiche le chiffre de la ligne i et de la colonne j
-			affiche = Label(al_fenetre2, text=liste[i][j], width=2, font=('Arial', 20, 'bold'), fg=fond)
+				# Affiche le chiffre de la ligne i et de la colonne j
+				affiche = Label(al_fenetre2, text=liste[i][j], width=2, font=('Arial', 20, 'bold'), fg=fond)
 
 			# Place le chiffre.
 			affiche.grid(row = i+1, column = j)
