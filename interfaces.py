@@ -265,7 +265,7 @@ def interface_debut()-> list:
 		al_fenetre1apropos.title("A propos")
 
 		# Ajoute un texte dans la fenètre.
-		Label(al_fenetre1apropos, text="PyDoku v2.0", font=('Arial', 30, 'italic', 'bold')).pack()
+		Label(al_fenetre1apropos, text="PyDoku v3.0", font=('Arial', 30, 'italic', 'bold')).pack()
 		Label(al_fenetre1apropos, text="Auteurs :", font=('Arial', 12, 'bold')).pack()
 		Label(al_fenetre1apropos, text="Ricardo Ramos", font=('Arial', 12, 'bold')).pack()
 		Label(al_fenetre1apropos, text="Rita Dos Santos", font=('Arial', 12, 'bold')).pack()
@@ -289,7 +289,7 @@ def interface_debut()-> list:
 	al_fenetre1 = Tk()
 
 	# Titre de la fenètre.
-	al_fenetre1.title("PyDoku v2.0")
+	al_fenetre1.title("PyDoku v3.0")
 
 	# Permet de créer des variables globales.
 	al_varglob = globals()
@@ -363,7 +363,7 @@ def interface_fin(liste:list, save:list):
 	al_fenetre2 = Tk()
 
 	# Titre de la fenètre.
-	al_fenetre2.title("PyDoku v2.0")
+	al_fenetre2.title("PyDoku v3.0")
 
 	# Ajoute un titre et un bouton dans la fenètre.
 	Label(al_fenetre2, text="Sudoku résolu", font=('Arial', 12, 'italic', 'bold')).grid(row=0, column=0, columnspan=9)
