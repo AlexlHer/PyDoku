@@ -32,10 +32,10 @@ def disponibilite_sur_colonne(coord:tuple, liste:list)->list:
 	voulu et renvoi ces chiffres.
 	"""
 
-	# Crée une liste.
+	# Crée une liste temporaire vide.
 	temp = []
 
-	# Boucle qui remplacent les zero par les chiffres de la colonne.
+	# On ajoute à la liste temporaire les valeurs de la colonne.
 	for i in range(9):
 		temp.append(liste[i][coord[1]])
 
