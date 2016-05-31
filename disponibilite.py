@@ -32,7 +32,7 @@ def disponibilite_sur_colonne(coord:tuple, liste:list)->list:
 	voulu et renvoi ces chiffres.
 	"""
 
-	# Crée une liste avec neuf zero.
+	# Crée une liste.
 	temp = []
 
 	# Boucle qui remplacent les zero par les chiffres de la colonne.
