@@ -84,7 +84,7 @@ def remplissage(sudoku:list, coordzero:list):
 		# On récupère les coordonnées de la case dans la liste de l'ordre
 		x = order[i][0]
 		y = order[i][1]
-		# On réupère les disponibilités actuelles de la case
+		# On récupère les disponibilités actuelles de la case
 		disp = disponibilite_sur_case(sudoku,(x,y))
 		# Dans le cas où la case n'a pas été modifiée, c'est à dire que la valeur est égale à 0
 		if sudoku[x][y] == 0:
