@@ -6,6 +6,7 @@ print("----------------------------------------------------------------------")
 
 from interfaces import *
 from disponibilite import *
+from copy import deepcopy
 
 def coordzero(liste: list):
 	"""
